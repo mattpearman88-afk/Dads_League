@@ -144,6 +144,12 @@ h3{font-size:22px;font-weight:800}
 .sub{display:flex;flex-direction:column;gap:10px}
 
 .records{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:10px}
+.nl{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px clamp(16px,4vw,32px);max-width:72ch;font-size:16px;line-height:1.65}
+.nl p{margin:0 0 14px}
+.nl h3{font-size:24px;margin:26px 0 10px;color:var(--accent)}
+.nl ol{margin:0 0 14px;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.nl .dateline{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:14px}
+.nl .sig{font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;margin-top:18px}
 footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .err{padding:20px;background:var(--miss-bg);color:var(--miss);border-radius:6px}
 
@@ -172,12 +178,18 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-si
   </div>
 
   <nav class="tabs" aria-label="Sections">
+    <a href="#newsletter">Newsletter</a>
     <a href="#power">Power Rankings</a>
     <a href="#standings">Standings</a>
     <a href="#recap">Weekly Recap</a>
     <a href="#parlay">Parlay</a>
     <a href="#records">Records</a>
   </nav>
+
+  <section id="newsletter">
+    <div class="sec-head"><h2 id="nl-title">The Newsletter</h2><div class="weekpick" id="nl-pick" role="group" aria-label="Choose issue"></div></div>
+    <article class="nl" id="nl-body"><p class="muted">Loading the latest issue…</p></article>
+  </section>
 
   <section id="power">
     <div class="sec-head"><h2>Power Rankings</h2><span class="eyebrow" id="pr-sub"></span></div>
@@ -238,6 +250,27 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const f1=n=>n.toFixed(1), f2=n=>n.toFixed(2);
 const pct=x=>x==null?'–':(x*100).toFixed(0)+'%';
 
+function md(src){
+  const inl=t=>esc(t).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>');
+  const blocks=src.replace(/\r/g,'').split(/\n{2,}/);
+  return blocks.map((b,i)=>{
+    if(/^## /.test(b)) return '<h3>'+inl(b.slice(3))+'</h3>';
+    if(/^\d+\. /.test(b)) return '<ol>'+b.split('\n').map(l=>'<li>'+inl(l.replace(/^\d+\.\s*/,''))+'</li>').join('')+'</ol>';
+    if(i===blocks.length-1&&!/\s/.test(b.trim())) return '<p class="sig">'+inl(b)+'</p>';
+    return '<p>'+b.split('\n').map(inl).join('<br>')+'</p>';
+  }).join('');
+}
+fetch('newsletters.json',{cache:'no-store'}).then(r=>r.json()).then(list=>{
+  list.sort((a,b)=>b.week-a.week);
+  const show=n=>{const x=list.find(i=>i.week===n);if(!x)return;
+    document.querySelector('#nl-title').textContent=x.title;
+    document.querySelector('#nl-body').innerHTML='<div class="dateline">'+esc(new Date(x.date+'T12:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}))+'</div>'+md(x.body);
+    document.querySelectorAll('#nl-pick button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.w===n));};
+  const pk=document.querySelector('#nl-pick');
+  pk.innerHTML=list.length>1?list.map(x=>'<button type="button" data-w="'+x.week+'" aria-pressed="false">Wk '+x.week+'</button>').join(''):'';
+  pk.addEventListener('click',e=>{const b=e.target.closest('button');if(b)show(+b.dataset.w)});
+  if(list.length)show(list[0].week);else document.querySelector('#nl-body').innerHTML='<p class="muted">No issues yet.</p>';
+}).catch(()=>{document.querySelector('#nl-body').innerHTML='<p class="muted">Couldn\'t load the newsletter. Try refreshing.</p>'});
 const ESPN='https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2026/segments/0/leagues/24653030?view=mTeam&view=mSettings&view=mStatus&view=mMatchupScore';
 function fromEspn(j){return {league:j.settings.name,leagueId:j.id,season:j.seasonId,currentWeek:j.status.currentMatchupPeriod,regSeasonWeeks:j.settings.scheduleSettings.matchupPeriodCount,playoffTeams:j.settings.scheduleSettings.playoffTeamCount,live:true,updated:new Date().toISOString().slice(0,10),
   teams:j.teams.map(t=>({id:t.id,name:(t.name||((t.location||'')+' '+(t.nickname||''))).trim(),abbrev:t.abbrev})),
