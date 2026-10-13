@@ -1,0 +1,357 @@
+{
+"players": [
+{
+"name": "MattyMo",
+"teamId": 9
+},
+{
+"name": "Baker",
+"teamId": 5
+},
+{
+"name": "Schmuke",
+"teamId": 20
+},
+{
+"name": "Andrew",
+"teamId": 1
+},
+{
+"name": "Kuhlman",
+"teamId": 8
+},
+{
+"name": "Jas",
+"teamId": 2
+},
+{
+"name": "Niko",
+"teamId": 3
+},
+{
+"name": "Breezy",
+"teamId": 10
+},
+{
+"name": "Mike",
+"teamId": 15
+},
+{
+"name": "Jones",
+"teamId": 6
+}
+],
+"weeks": {
+"1": [
+{
+"player": "MattyMo",
+"leg": "JJ 100+ YDS",
+"type": "Receiving Yds",
+"result": "MISS"
+},
+{
+"player": "Baker",
+"leg": "Goff TD",
+"type": "Passing TDs",
+"result": "HIT"
+},
+{
+"player": "Schmuke",
+"leg": "LAC ML",
+"type": "Moneyline",
+"result": "MISS"
+},
+{
+"player": "Andrew",
+"leg": "Diggs 3+ REC",
+"type": "Receptions",
+"result": "HIT"
+},
+{
+"player": "Kuhlman",
+"leg": "TB ML",
+"type": "Moneyline",
+"result": "MISS"
+},
+{
+"player": "Jas",
+"leg": "walker td",
+"type": "Anytime TD",
+"result": "HIT"
+},
+{
+"player": "Niko",
+"leg": "Hurts TD",
+"type": "Anytime TD",
+"result": "MISS"
+},
+{
+"player": "Breezy",
+"leg": "Achane 4+ REC",
+"type": "Receptions",
+"result": "HIT"
+},
+{
+"player": "Mike",
+"leg": "GB/MN Under",
+"type": "Game Total",
+"result": "MISS"
+},
+{
+"player": "Jones",
+"leg": "KC ML",
+"type": "Moneyline",
+"result": "HIT"
+}
+],
+"2": [
+{
+"player": "MattyMo",
+"leg": "Lawrence 200+",
+"type": "Passing Yds",
+"result": "MISS"
+},
+{
+"player": "Baker",
+"leg": "Mahomes 200+",
+"type": "Passing Yds",
+"result": "HIT"
+},
+{
+"player": "Schmuke",
+"leg": "Henry TD",
+"type": "Anytime TD",
+"result": "HIT"
+},
+{
+"player": "Andrew",
+"leg": "Goff .5 YDS Rush",
+"type": "Rushing Yds",
+"result": "HIT"
+},
+{
+"player": "Kuhlman",
+"leg": "Cin +3",
+"type": "Spread",
+"result": "HIT"
+},
+{
+"player": "Jas",
+"leg": "Gibbs 10+ YDS",
+"type": "Rushing Yds",
+"result": "HIT"
+},
+{
+"player": "Niko",
+"leg": "KC ML",
+"type": "Moneyline",
+"result": "HIT"
+},
+{
+"player": "Breezy",
+"leg": "TB -8.5",
+"type": "Spread",
+"result": "MISS"
+},
+{
+"player": "Mike",
+"leg": "CHI/MN Over",
+"type": "Game Total",
+"result": "MISS"
+},
+{
+"player": "Jones",
+"leg": "Allen TD",
+"type": "Anytime TD",
+"result": "HIT"
+}
+],
+"3": [
+{
+"player": "MattyMo",
+"leg": "miami under 14.5",
+"type": "Team Total",
+"result": "HIT"
+},
+{
+"player": "Baker",
+"leg": "Lamb 5+ receptions",
+"type": "Receptions",
+"result": "HIT"
+},
+{
+"player": "Schmuke",
+"leg": "Bills spread",
+"type": "Spread",
+"result": "HIT"
+},
+{
+"player": "Andrew",
+"leg": "Bills over 30.5",
+"type": "Team Total",
+"result": "MISS"
+},
+{
+"player": "Kuhlman",
+"leg": "tit/Giants under",
+"type": "Game Total",
+"result": "HIT"
+},
+{
+"player": "Jas",
+"leg": "Seahawks spread",
+"type": "Spread",
+"result": "MISS"
+},
+{
+"player": "Niko",
+"leg": "Lions spread",
+"type": "Spread",
+"result": "HIT"
+},
+{
+"player": "Breezy",
+"leg": "Adams TD",
+"type": "Anytime TD",
+"result": "MISS"
+},
+{
+"player": "Mike",
+"leg": "Hall TD",
+"type": "Anytime TD",
+"result": "MISS"
+},
+{
+"player": "Jones",
+"leg": "Walker TD",
+"type": "Anytime TD",
+"result": "HIT"
+}
+],
+"4": [
+{
+"player": "MattyMo",
+"leg": "NY/AZ Under",
+"type": "Game Total",
+"result": "MISS"
+},
+{
+"player": "Baker",
+"leg": "J. Williams 50.5+ rec",
+"type": "Receiving Yds",
+"result": "HIT"
+},
+{
+"player": "Schmuke",
+"leg": "Mahomes 250+",
+"type": "Passing Yds",
+"result": "MISS"
+},
+{
+"player": "Andrew",
+"leg": "walker td",
+"type": "Anytime TD",
+"result": "HIT"
+},
+{
+"player": "Kuhlman",
+"leg": "jags spread",
+"type": "Spread",
+"result": "HIT"
+},
+{
+"player": "Jas",
+"leg": "Burrow 2+ pass TD",
+"type": "Passing TDs",
+"result": "MISS"
+},
+{
+"player": "Niko",
+"leg": "Chiefs ML",
+"type": "Moneyline",
+"result": "HIT"
+},
+{
+"player": "Breezy",
+"leg": "INDY ML",
+"type": "Moneyline",
+"result": "HIT"
+},
+{
+"player": "Mike",
+"leg": "Chargers spread",
+"type": "Spread",
+"result": "VOID"
+},
+{
+"player": "Jones",
+"leg": "Kelce TD",
+"type": "Anytime TD",
+"result": "MISS"
+}
+],
+"5": [
+{
+"player": "MattyMo",
+"leg": "Drake London TD",
+"type": "Anytime TD",
+"result": "MISS"
+},
+{
+"player": "Baker",
+"leg": "K. Williams TD",
+"type": "Anytime TD",
+"result": "HIT"
+},
+{
+"player": "Schmuke",
+"leg": "NY/WAS Under",
+"type": "Game Total",
+"result": "MISS"
+},
+{
+"player": "Andrew",
+"leg": "Browns ML",
+"type": "Moneyline",
+"result": "MISS"
+},
+{
+"player": "Kuhlman",
+"leg": "Raiders spread",
+"type": "Spread",
+"result": "MISS"
+},
+{
+"player": "Jas",
+"leg": "LAC ML",
+"type": "Moneyline",
+"result": "MISS"
+},
+{
+"player": "Niko",
+"leg": "St. Brown TD",
+"type": "Anytime TD",
+"result": "MISS"
+},
+{
+"player": "Breezy",
+"leg": "Jags spread",
+"type": "Spread",
+"result": "MISS"
+},
+{
+"player": "Mike",
+"leg": "Brissett 250+",
+"type": "Passing Yds",
+"result": "HIT"
+},
+{
+"player": "Jones",
+"leg": "Henry TD",
+"type": "Anytime TD",
+"result": "HIT"
+}
+]
+},
+"updated": "2026-10-13"
+}
