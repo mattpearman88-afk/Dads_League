@@ -290,7 +290,7 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-si
         <thead><tr><th>#</th><th>Manager</th><th>Seasons</th><th>W-L</th><th>Win %</th><th>Pts/Gm</th><th>Titles</th><th>Playoffs</th><th>Best</th><th>Avg Finish</th></tr></thead>
         <tbody id="hx-all"></tbody>
       </table></div>
-      <p class="note">Regular-season games only for W-L and points, 2019 through this week. Titles, playoff trips and finishes count completed seasons. Former members are listed by their most recent team name.</p>
+      <p class="note">Regular-season games only for W-L and points, 2019 through this week. Titles, playoff trips and finishes count completed seasons. Current managers only.</p>
     </div>
     <div class="sub"><h3>Finish by Season</h3>
       <div class="tbl-wrap"><table class="grid"><thead id="hx-fin-h"></thead><tbody id="hx-fin"></tbody></table></div>
@@ -544,32 +544,33 @@ function render(L,P,H){
   if(H){
     const years=H.seasons.map(s=>s.y);
     $('#hx-sub').textContent=`${years[0]}–${L.season} · ${years.length} completed seasons`;
-    const latestName={};H.seasons.forEach(s=>s.teams.forEach(t=>latestName[t[0]]=t[1]));
+    
     const isCur=k=>typeof k==='number'&&T[k];
-    const label=k=>isCur(k)?(nick(k)||T[k].name):latestName[k];
+    const label=k=>isCur(k)?(nick(k)||T[k].name):'Former member';
     const sublabel=k=>isCur(k)?T[k].name:'Former member';
-    $('#hx-champs').innerHTML=H.seasons.slice().reverse().map(s=>{const c=s.teams.find(t=>t[2]===1),r=s.teams.find(t=>t[2]===2);
-      return `<div class="champ"><span class="y">${s.y}</span><span class="t">${esc(c[1])}</span><span class="o">${esc(isCur(c[0])?nick(c[0]):'Former member')}</span>${r?`<span class="o">Runner-up: ${esc(r[1])}</span>`:''}</div>`}).join('');
+    $('#hx-champs').innerHTML=H.seasons.slice().reverse().map(s=>{const c=s.teams.find(t=>t[1]===1),r=s.teams.find(t=>t[1]===2);
+      return `<div class="champ"><span class="y">${s.y}</span><span class="t">${esc(label(c[0]))}</span>${isCur(c[0])?`<span class="o">${esc(T[c[0]].name)}</span>`:''}${r?`<span class="o">Runner-up: ${esc(label(r[0]))}</span>`:''}</div>`}).join('');
     const A={};const get=k=>A[k]||(A[k]={k,w:0,l:0,t:0,pf:0,g:0,seasons:new Set(),titles:0,po:0,fin:[]});
-    H.seasons.forEach(s=>{s.teams.forEach(t=>{const a=get(t[0]);a.seasons.add(s.y);if(t[2])a.fin.push(t[2]);if(t[2]===1)a.titles++;});
+    H.seasons.forEach(s=>{s.teams.forEach(t=>{const a=get(t[0]);a.seasons.add(s.y);if(t[1])a.fin.push(t[1]);if(t[1]===1)a.titles++;});
       const po=new Set();s.games.forEach(g=>{if(g[5]===1){po.add(g[1]);po.add(g[3])}});po.forEach(k=>get(k).po++);
       s.games.forEach(g=>{if(g[5]!==0)return;const a=get(g[1]),b=get(g[3]);a.g++;b.g++;a.pf+=g[2];b.pf+=g[4];if(g[2]>g[4]){a.w++;b.l++}else if(g[4]>g[2]){b.w++;a.l++}else{a.t++;b.t++}})});
     games.forEach(g=>{const a=get(g.h),b=get(g.a);a.seasons.add(L.season);b.seasons.add(L.season);a.g++;b.g++;a.pf+=g.hp;b.pf+=g.ap;if(g.hp>g.ap){a.w++;b.l++}else if(g.ap>g.hp){b.w++;a.l++}else{a.t++;b.t++}});
-    const all=Object.values(A).map(a=>Object.assign(a,{wp:(a.w+a.t/2)/(a.g||1)})).sort((x,y)=>y.titles-x.titles||y.wp-x.wp);
-    $('#hx-all').innerHTML=all.map((a,i)=>`<tr${isCur(a.k)?'':' class="muted"'}><td>${i+1}</td><td class="team">${esc(label(a.k))}<small>${esc(sublabel(a.k))}</small></td><td>${a.seasons.size}</td><td>${a.w}-${a.l}${a.t?'-'+a.t:''}</td><td>${(a.wp*100).toFixed(1)}%</td><td>${f1(a.pf/(a.g||1))}</td><td>${a.titles||'–'}</td><td>${a.po||'–'}</td><td>${a.fin.length?Math.min(...a.fin):'–'}</td><td>${a.fin.length?f1(a.fin.reduce((x,y)=>x+y,0)/a.fin.length):'–'}</td></tr>`).join('');
+    const all=Object.values(A).filter(a=>isCur(a.k)).map(a=>Object.assign(a,{wp:(a.w+a.t/2)/(a.g||1)})).sort((x,y)=>y.titles-x.titles||y.wp-x.wp);
+    $('#hx-all').innerHTML=all.map((a,i)=>`<tr><td>${i+1}</td><td class="team">${esc(label(a.k))}<small>${esc(sublabel(a.k))}</small></td><td>${a.seasons.size}</td><td>${a.w}-${a.l}${a.t?'-'+a.t:''}</td><td>${(a.wp*100).toFixed(1)}%</td><td>${f1(a.pf/(a.g||1))}</td><td>${a.titles||'–'}</td><td>${a.po||'–'}</td><td>${a.fin.length?Math.min(...a.fin):'–'}</td><td>${a.fin.length?f1(a.fin.reduce((x,y)=>x+y,0)/a.fin.length):'–'}</td></tr>`).join('');
     const finKeys=all.map(a=>a.k);
     $('#hx-fin-h').innerHTML=`<tr><th>Manager</th>${years.map(y=>`<th>${y}</th>`).join('')}</tr>`;
-    $('#hx-fin').innerHTML=finKeys.map(k=>`<tr><td class="team">${esc(label(k))}</td>${H.seasons.map(s=>{const t=s.teams.find(t=>t[0]===k);return t?`<td class="${t[2]===1?'gold':''}">${t[2]||'–'}</td>`:'<td class="muted">·</td>'}).join('')}</tr>`).join('');
+    $('#hx-fin').innerHTML=finKeys.map(k=>`<tr><td class="team">${esc(label(k))}</td>${H.seasons.map(s=>{const t=s.teams.find(t=>t[0]===k);return t?`<td class="${t[1]===1?'gold':''}">${t[1]||'–'}</td>`:'<td class="muted">·</td>'}).join('')}</tr>`).join('');
     const curIds=Object.values(cur).sort((a,b)=>a.prank-b.prank).map(s=>s.id);
     $('#hx-h2h-h').innerHTML=`<tr><th></th>${curIds.map(id=>`<th>${esc(nick(id)||T[id].abbrev)}</th>`).join('')}</tr>`;
     $('#hx-h2h').innerHTML=curIds.map(r=>`<tr><td class="team">${esc(nick(r)||T[r].name)}</td>${curIds.map(c=>{if(r===c)return '<td class="self">–</td>';const [w,l]=h2h(r,c);if(!(w+l))return '<td class="muted">0-0</td>';const p=w/(w+l);return `<td style="background:color-mix(in srgb,${p>=.5?'var(--hit)':'var(--miss)'} ${Math.round(Math.abs(p-.5)*70)}%,transparent)">${w}-${l}</td>`}).join('')}</tr>`).join('');
     const reg=allGames.filter(g=>g.tier===0);
-    const sc=reg.flatMap(g=>[[g.h,g.hp,g.y,g.w],[g.a,g.ap,g.y,g.w]]);
+    const sc=reg.flatMap(g=>[[g.h,g.hp,g.y,g.w],[g.a,g.ap,g.y,g.w]]).filter(x=>isCur(x[0]));
     const hi=sc.slice().sort((a,b)=>b[1]-a[1])[0],lo=sc.slice().sort((a,b)=>a[1]-b[1])[0];
     const mg=reg.map(g=>({y:g.y,w:g.w,W:g.hp>=g.ap?g.h:g.a,Lo:g.hp>=g.ap?g.a:g.h,d:Math.abs(g.hp-g.ap),Lp:Math.min(g.hp,g.ap)}));
-    const bl=mg.slice().sort((a,b)=>b.d-a.d)[0],cl=mg.filter(m=>m.d>0).sort((a,b)=>a.d-b.d)[0],ul=mg.slice().sort((a,b)=>b.Lp-a.Lp)[0];
-    const bestSeason=H.seasons.flatMap(s=>{const r={};s.games.filter(g=>g[5]===0).forEach(g=>{[[g[1],g[2]],[g[3],g[4]]].forEach(([k,p])=>{(r[k]=r[k]||{k,pf:0,g:0}).pf+=p;r[k].g++})});return Object.values(r).map(x=>Object.assign(x,{y:s.y,avg:x.pf/x.g}))}).sort((a,b)=>b.avg-a.avg)[0];
-    const nm=k=>isCur(k)?`${label(k)}`:`${latestName[k]} (former)`;
+    const mgW=mg.filter(m=>isCur(m.W)),mgL=mg.filter(m=>isCur(m.Lo));
+    const bl=mgW.slice().sort((a,b)=>b.d-a.d)[0],cl=mgW.filter(m=>m.d>0).sort((a,b)=>a.d-b.d)[0],ul=mgL.slice().sort((a,b)=>b.Lp-a.Lp)[0];
+    const bestSeason=H.seasons.flatMap(s=>{const r={};s.games.filter(g=>g[5]===0).forEach(g=>{[[g[1],g[2]],[g[3],g[4]]].forEach(([k,p])=>{(r[k]=r[k]||{k,pf:0,g:0}).pf+=p;r[k].g++})});return Object.values(r).filter(x=>isCur(x.k)).map(x=>Object.assign(x,{y:s.y,avg:x.pf/x.g}))}).sort((a,b)=>b.avg-a.avg)[0];
+    const nm=k=>isCur(k)?label(k):'a former member';
     const recs=[['Highest score',f2(hi[1]),nm(hi[0]),`Week ${hi[3]}, ${hi[2]}`],['Lowest score',f2(lo[1]),nm(lo[0]),`Week ${lo[3]}, ${lo[2]}`],
       ['Biggest blowout','+'+f2(bl.d),nm(bl.W),`over ${nm(bl.Lo)}, Week ${bl.w} ${bl.y}`],['Closest game','+'+f2(cl.d),nm(cl.W),`over ${nm(cl.Lo)}, Week ${cl.w} ${cl.y}`],
       ['Most points in a loss',f2(ul.Lp),nm(ul.Lo),`vs ${nm(ul.W)}, Week ${ul.w} ${ul.y}`],['Best scoring season',f1(bestSeason.avg)+'/gm',nm(bestSeason.k),`${bestSeason.y} regular season`]];
