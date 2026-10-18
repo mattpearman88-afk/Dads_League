@@ -351,7 +351,69 @@
 "type": "Anytime TD",
 "result": "HIT"
 }
+],
+"6": [
+{
+"player": "MattyMo",
+"leg": "Kelce 4+ receptions",
+"type": "Receptions",
+"result": null
+},
+{
+"player": "Baker",
+"leg": "Watson 71.5 rec yds",
+"type": "Receiving Yds",
+"result": null
+},
+{
+"player": "Schmuke",
+"leg": "Walker 90+ rush yds",
+"type": "Rushing Yds",
+"result": null
+},
+{
+"player": "Andrew",
+"leg": "Mahomes 175+ pass yds",
+"type": "Passing Yds",
+"result": null
+},
+{
+"player": "Kuhlman",
+"leg": "J. Williams 50+ rush yds",
+"type": "Rushing Yds",
+"result": null
+},
+{
+"player": "Jas",
+"leg": "Herbert 1+ pass TD",
+"type": "Passing TDs",
+"result": null
+},
+{
+"player": "Niko",
+"leg": "CMC anytime TD",
+"type": "Anytime TD",
+"result": null
+},
+{
+"player": "Breezy",
+"leg": "Bucky Irving TD",
+"type": "Anytime TD",
+"result": null
+},
+{
+"player": "Mike",
+"leg": "bowers 7+ receptions",
+"type": "Receptions",
+"result": null
+},
+{
+"player": "Jones",
+"leg": "josh allen TD",
+"type": "Anytime TD",
+"result": null
+}
 ]
 },
-"updated": "2026-10-13"
+"updated": "2026-10-18"
 }
