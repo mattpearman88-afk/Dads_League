@@ -357,63 +357,63 @@
 "player": "MattyMo",
 "leg": "Kelce 4+ receptions",
 "type": "Receptions",
-"result": null
+"result": "HIT"
 },
 {
 "player": "Baker",
 "leg": "Watson 71.5 rec yds",
 "type": "Receiving Yds",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Schmuke",
 "leg": "Walker 90+ rush yds",
 "type": "Rushing Yds",
-"result": null
+"result": "HIT"
 },
 {
 "player": "Andrew",
 "leg": "Mahomes 175+ pass yds",
 "type": "Passing Yds",
-"result": null
+"result": "HIT"
 },
 {
 "player": "Kuhlman",
 "leg": "J. Williams 50+ rush yds",
 "type": "Rushing Yds",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Jas",
 "leg": "Herbert 1+ pass TD",
 "type": "Passing TDs",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Niko",
 "leg": "CMC anytime TD",
 "type": "Anytime TD",
-"result": null
+"result": "HIT"
 },
 {
 "player": "Breezy",
 "leg": "Bucky Irving TD",
 "type": "Anytime TD",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Mike",
 "leg": "bowers 7+ receptions",
 "type": "Receptions",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Jones",
 "leg": "josh allen TD",
 "type": "Anytime TD",
-"result": null
+"result": "MISS"
 }
 ]
 },
-"updated": "2026-10-18"
+"updated": "2026-10-20"
 }
