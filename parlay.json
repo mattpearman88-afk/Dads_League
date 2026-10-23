@@ -413,7 +413,57 @@
 "type": "Anytime TD",
 "result": "MISS"
 }
+],
+"7": [
+{
+"player": "MattyMo",
+"leg": "Boston TD",
+"type": "Anytime TD",
+"result": null
+},
+{
+"player": "Baker",
+"leg": "Panthers ML",
+"type": "Moneyline",
+"result": null
+},
+{
+"player": "Schmuke",
+"leg": "Love 280+ PassYDS",
+"type": "Passing Yds",
+"result": null
+},
+{
+"player": "Kuhlman",
+"leg": "Raiders +3.5",
+"type": "Spread",
+"result": null
+},
+{
+"player": "Jas",
+"leg": "Mahomes 200+ Pass YDS",
+"type": "Passing Yds",
+"result": null
+},
+{
+"player": "Niko",
+"leg": "Chiefs ML",
+"type": null,
+"result": null
+},
+{
+"player": "Breezy",
+"leg": "Giants +10.5",
+"type": "Spread",
+"result": null
+},
+{
+"player": "Mike",
+"leg": "Olave 75+ YDS",
+"type": "Receiving Yds",
+"result": null
+}
 ]
 },
-"updated": "2026-10-20"
+"updated": "2026-10-22"
 }
