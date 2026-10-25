@@ -434,6 +434,12 @@
 "result": null
 },
 {
+"player": "Andrew",
+"leg": "Germie Bernard 50+ Rec yds",
+"type": "Receiving Yds",
+"result": null
+},
+{
 "player": "Kuhlman",
 "leg": "Raiders +3.5",
 "type": "Spread",
@@ -448,7 +454,7 @@
 {
 "player": "Niko",
 "leg": "Chiefs ML",
-"type": null,
+"type": "Moneyline",
 "result": null
 },
 {
@@ -462,8 +468,14 @@
 "leg": "Olave 75+ YDS",
 "type": "Receiving Yds",
 "result": null
+},
+{
+"player": "Jones",
+"leg": "Purdy 200+ yds",
+"type": "Passing Yds",
+"result": null
 }
 ]
 },
-"updated": "2026-10-22"
+"updated": "2026-10-24"
 }
