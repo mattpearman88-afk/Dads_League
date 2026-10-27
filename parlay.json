@@ -419,63 +419,63 @@
 "player": "MattyMo",
 "leg": "Boston TD",
 "type": "Anytime TD",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Baker",
 "leg": "Panthers ML",
 "type": "Moneyline",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Schmuke",
 "leg": "Love 280+ PassYDS",
 "type": "Passing Yds",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Andrew",
 "leg": "Germie Bernard 50+ Rec yds",
 "type": "Receiving Yds",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Kuhlman",
 "leg": "Raiders +3.5",
 "type": "Spread",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Jas",
 "leg": "Mahomes 200+ Pass YDS",
 "type": "Passing Yds",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Niko",
 "leg": "Chiefs ML",
 "type": "Moneyline",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Breezy",
 "leg": "Giants +10.5",
 "type": "Spread",
-"result": null
+"result": "HIT"
 },
 {
 "player": "Mike",
 "leg": "Olave 75+ YDS",
 "type": "Receiving Yds",
-"result": null
+"result": "MISS"
 },
 {
 "player": "Jones",
 "leg": "Purdy 200+ yds",
 "type": "Passing Yds",
-"result": null
+"result": "HIT"
 }
 ]
 },
-"updated": "2026-10-24"
+"updated": "2026-10-27"
 }
