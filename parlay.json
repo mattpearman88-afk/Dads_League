@@ -475,7 +475,69 @@
 "type": "Passing Yds",
 "result": "HIT"
 }
+],
+"8": [
+{
+"player": "MattyMo",
+"leg": "Irving 3+ rec",
+"type": "Receptions",
+"result": null
+},
+{
+"player": "Baker",
+"leg": "Hockenson 37.5+ rec YDS",
+"type": "Receiving Yds",
+"result": null
+},
+{
+"player": "Schmuke",
+"leg": "Brown 81.5+ total yds",
+"type": "Other",
+"result": null
+},
+{
+"player": "Andrew",
+"leg": "Diggs 4+ rec",
+"type": "Receptions",
+"result": null
+},
+{
+"player": "Kuhlman",
+"leg": "Jags ML",
+"type": "Moneyline",
+"result": null
+},
+{
+"player": "Jas",
+"leg": "bengals ML",
+"type": "Moneyline",
+"result": null
+},
+{
+"player": "Niko",
+"leg": "Chiefs ML",
+"type": "Moneyline",
+"result": null
+},
+{
+"player": "Breezy",
+"leg": "Walker TD",
+"type": "Anytime TD",
+"result": null
+},
+{
+"player": "Mike",
+"leg": "Lawrence 200+ pass YDS",
+"type": "Passing Yds",
+"result": null
+},
+{
+"player": "Jones",
+"leg": "Bills ML",
+"type": "Moneyline",
+"result": null
+}
 ]
 },
-"updated": "2026-10-27"
+"updated": "2026-11-01"
 }
