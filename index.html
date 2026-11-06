@@ -458,6 +458,7 @@ function render(L,P,H){
   // parlay
   const pw=Object.keys(P.weeks).map(Number).sort((a,b)=>a-b);
   const norm=r=>r?String(r).toUpperCase():'PEND';
+  const odds=o=>{const n=Number(o);return o===null||o===undefined||o===''||!isFinite(n)?'':(n>0?'+':'')+Math.round(n)};
   const wkSum=pw.map(w=>{const legs=P.weeks[w];const c=k=>legs.filter(l=>norm(l.result)===k).length;
     const h=c('HIT'),m=c('MISS'),v=c('VOID')+c('PUSH'),pend=c('PEND');
     return {w,h,m,v,pend,n:legs.length,status:m>0?'LOST':pend>0?'PENDING':'WON'}});
@@ -472,12 +473,12 @@ function render(L,P,H){
   }).sort((a,b)=>(b.hp??-1)-(a.hp??-1)||b.h-a.h);
   let rk=0,prevHp=null;
   $('#pl-lb').innerHTML=lb.map((x,i)=>{if(x.hp!==prevHp){rk=i+1;prevHp=x.hp}
-    return `<tr><td>${rk}</td><td class="team">${esc(x.p.name)}<small>${esc(T[x.p.teamId]?.name||'')}</small></td><td>${x.h}</td><td>${x.m}</td><td><b>${pct(x.hp)}</b></td><td>${x.lone}</td><td><span class="dots">${x.by.map(b=>`<span class="dot ${b[1]}" title="Week ${b[0]}: ${esc(b[2]?b[2].leg:'no pick')} (${b[1]==='PEND'?'pending':b[1].toLowerCase()})"></span>`).join('')}</span></td></tr>`}).join('');
+    return `<tr><td>${rk}</td><td class="team">${esc(x.p.name)}<small>${esc(T[x.p.teamId]?.name||'')}</small></td><td>${x.h}</td><td>${x.m}</td><td><b>${pct(x.hp)}</b></td><td>${x.lone}</td><td><span class="dots">${x.by.map(b=>`<span class="dot ${b[1]}" title="Week ${b[0]}: ${esc(b[2]?b[2].leg:'no pick')}${b[2]&&odds(b[2].odds)?' '+odds(b[2].odds):''} (${b[1]==='PEND'?'pending':b[1].toLowerCase()})"></span>`).join('')}</span></td></tr>`}).join('');
   const cw=pw[pw.length-1];
   $('#pl-cur-h').textContent=`Week ${cw} Ticket`;
   const curLegs=P.players.map(p=>[p,P.weeks[cw].find(l=>l.player===p.name)]);
   $('#pl-cur').innerHTML=curLegs.map(([p,l])=>{const r=l?norm(l.result):null;
-    return `<div class="pick"><span class="who">${esc(p.name)}</span><span class="leg">${l?esc(l.leg):'<span class="muted">No pick yet</span>'}${l&&l.type?`<small>${esc(l.type)}</small>`:''}</span>${r?`<span class="chip ${r}">${r==='PEND'?'OPEN':r}</span>`:''}</div>`}).join('');
+    return `<div class="pick"><span class="who">${esc(p.name)}</span><span class="leg">${l?esc(l.leg):'<span class="muted">No pick yet</span>'}${l&&(l.type||odds(l.odds))?`<small>${esc([l.type,odds(l.odds)].filter(Boolean).join(' · '))}</small>`:''}</span>${r?`<span class="chip ${r}">${r==='PEND'?'OPEN':r}</span>`:''}</div>`}).join('');
   const types={};
   pw.forEach(w=>P.weeks[w].forEach(l=>{if(!l.type)return;const r=norm(l.result);const t=types[l.type]||(types[l.type]={h:0,m:0,n:0});t.n++;if(r==='HIT')t.h++;if(r==='MISS')t.m++}));
   $('#pl-types').innerHTML=Object.entries(types).filter(([k,t])=>t.h+t.m>0).sort((a,b)=>(b[1].h/(b[1].h+b[1].m))-(a[1].h/(a[1].h+a[1].m))||b[1].n-a[1].n).map(([k,t])=>{const r=t.h/(t.h+t.m);
