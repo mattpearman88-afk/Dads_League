@@ -624,72 +624,72 @@
 "leg": "J.Jefferson 6.5+ rec",
 "type": "Receptions",
 "odds": -104,
-"result": null
+"result": "MISS"
 },
 {
 "player": "Baker",
 "leg": "raiders +9.5",
 "type": "Spread",
 "odds": -106,
-"result": null
+"result": "MISS"
 },
 {
 "player": "Schmuke",
 "leg": "saints ML",
 "type": "Moneyline",
 "odds": -159,
-"result": null
+"result": "HIT"
 },
 {
 "player": "Andrew",
 "leg": "Swift 10+ rec yds",
 "type": "Receiving Yds",
 "odds": -140,
-"result": null
+"result": "MISS"
 },
 {
 "player": "Kuhlman",
 "leg": "chiefs ml",
 "type": "Moneyline",
 "odds": -458,
-"result": null
+"result": "HIT"
 },
 {
 "player": "Jas",
 "leg": "Gibbs 60+ rush yds",
 "type": "Rushing Yds",
 "odds": -103,
-"result": null
+"result": "HIT"
 },
 {
 "player": "Niko",
 "leg": "Lions ML",
 "type": "Moneyline",
 "odds": -103,
-"result": null
+"result": "HIT"
 },
 {
 "player": "Breezy",
 "leg": "Commanders +4.5",
 "type": "Spread",
 "odds": -101,
-"result": null
+"result": "MISS"
 },
 {
 "player": "Mike",
 "leg": "goff 1.5+ pass tds",
 "type": "Passing TDs",
 "odds": -103,
-"result": null
+"result": "MISS"
 },
 {
 "player": "Jones",
 "leg": "Bears ML",
 "type": "Moneyline",
 "odds": -140,
-"result": null
+"result": "HIT"
 }
 ]
 },
-"updated": "2026-11-08"
+"updated": "2026-11-10"
 }
