@@ -689,7 +689,79 @@
 "odds": -140,
 "result": "HIT"
 }
+],
+"10": [
+{
+"player": "MattyMo",
+"leg": "E. Johnson 3+receptions",
+"type": "Receptions",
+"odds": null,
+"result": null
+},
+{
+"player": "Baker",
+"leg": "Lawrence +243 pass yds",
+"type": "Passing Yds",
+"odds": null,
+"result": null
+},
+{
+"player": "Schmuke",
+"leg": "Tuten TD",
+"type": "Anytime TD",
+"odds": null,
+"result": null
+},
+{
+"player": "Andrew",
+"leg": "Bijan 60+ rush yds",
+"type": "Rushing Yds",
+"odds": null,
+"result": null
+},
+{
+"player": "Kuhlman",
+"leg": "Seahawks ML",
+"type": "Moneyline",
+"odds": null,
+"result": null
+},
+{
+"player": "Jas",
+"leg": "Bills ML",
+"type": "Moneyline",
+"odds": null,
+"result": null
+},
+{
+"player": "Niko",
+"leg": "Chiefs ML",
+"type": "Moneyline",
+"odds": null,
+"result": null
+},
+{
+"player": "Breezy",
+"leg": "J. Downs TD",
+"type": "Anytime TD",
+"odds": null,
+"result": null
+},
+{
+"player": "Mike",
+"leg": "JSN  50+ rec yds",
+"type": "Receiving Yds",
+"odds": null,
+"result": null
+},
+{
+"player": "Jones",
+"leg": "Jags ML",
+"type": "Moneyline",
+"odds": null,
+"result": null
+}
 ]
 },
-"updated": "2026-11-10"
+"updated": "2026-11-15"
 }
