@@ -761,7 +761,79 @@
 "odds": null,
 "result": "HIT"
 }
+],
+"11": [
+{
+"player": "MattyMo",
+"leg": "Monangai TD",
+"type": "Anytime TD",
+"odds": 130,
+"result": null
+},
+{
+"player": "Baker",
+"leg": "dowdle 30+ rush yds",
+"type": "Rushing Yds",
+"odds": -205,
+"result": null
+},
+{
+"player": "Schmuke",
+"leg": "Raiders/Broncos Under 41.5",
+"type": "Game Total",
+"odds": -114,
+"result": null
+},
+{
+"player": "Andrew",
+"leg": "Mahomes 225+ pass yds",
+"type": "Passing Yds",
+"odds": -210,
+"result": null
+},
+{
+"player": "Kuhlman",
+"leg": "Josh Allen TD",
+"type": "Anytime TD",
+"odds": -175,
+"result": null
+},
+{
+"player": "Jas",
+"leg": "cowboys ml",
+"type": "Moneyline",
+"odds": -405,
+"result": null
+},
+{
+"player": "Niko",
+"leg": "Chiefs ML",
+"type": "Moneyline",
+"odds": -1600,
+"result": null
+},
+{
+"player": "Breezy",
+"leg": "Downs TD",
+"type": "Anytime TD",
+"odds": 210,
+"result": null
+},
+{
+"player": "Mike",
+"leg": "Mcbride 4+ receptions",
+"type": "Receptions",
+"odds": -670,
+"result": null
+},
+{
+"player": "Jones",
+"leg": "Lions LM",
+"type": "Moneyline",
+"odds": 126,
+"result": null
+}
 ]
 },
-"updated": "2026-11-17"
+"updated": "2026-11-22"
 }
